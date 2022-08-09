@@ -1,0 +1,21 @@
+<div class="input-container">
+  <form action="" (ngSubmit)="onSubmit()">
+    <input type="text" name="lnrequest" [(ngModel)]="lnRequestBlank" />
+    <button type="submit" class="button" class="submit-btn">Decode</button>
+  </form>
+</div>
+
+<div class="output-container">
+  <!-- <p>{{data.status}}</p>
+    <p>{{data.status}}</p>
+    <p>{{data.message}}</p> -->
+</div>
+
+<div class="row">
+  <div class="card" *ngIf="lnrequest">
+    <h3>{{ lnrequest.message | titlecase }}</h3>
+    <p>{{ lnrequest.data | json }}</p>
+    <p>{{ lnrequest.status | json }}</p>
+  </div>
+  <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+</div>

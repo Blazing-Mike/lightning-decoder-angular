@@ -1,0 +1,20 @@
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ln-input{
+        width: 25rem;
+        height: 3rem;
+        outline: none;
+    }
+
+    .submit-btn{
+        width: 5rem;
+        height: 3rem;
+        font-size: 1rem;
+        outline: none;
+        cursor: pointer;
+        margin: 0 2rem;
+    }
+}
