@@ -49,10 +49,8 @@ checkInputType(lnRequestBlank:string) {
     const httpOptions = {
       headers : new HttpHeaders({
         Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer sk.9683282.a9e5417b0b61f6c61cfbfb9bd1b5466d'
+        'Content-Type': 'application/json'
       }),
-
     };
 
     return this.http.post(`${this.baseURL}${this.constructApiURL(this.lnRequestBlank)}`, this.checkInputType(this.lnRequestBlank), httpOptions);

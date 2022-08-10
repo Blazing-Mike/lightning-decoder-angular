@@ -1,21 +1,44 @@
-<div class="input-container">
-  <form action="" (ngSubmit)="onSubmit()">
-    <input type="text" name="lnrequest" [(ngModel)]="lnRequestBlank" />
-    <button type="submit" class="button" class="submit-btn">Decode</button>
-  </form>
-</div>
-
-<div class="output-container">
-  <!-- <p>{{data.status}}</p>
-    <p>{{data.status}}</p>
-    <p>{{data.message}}</p> -->
-</div>
-
-<div class="row">
-  <div class="card" *ngIf="lnrequest">
-    <h3>{{ lnrequest.message | titlecase }}</h3>
-    <p>{{ lnrequest.data | json }}</p>
-    <p>{{ lnrequest.status | json }}</p>
+<div class="outer-container">
+  <div class="input-container">
+    <form action="" (ngSubmit)="onSubmit()">
+      <input type="text" name="lnrequest" [(ngModel)]="lnRequestBlank" class="ln-input"/>
+      <button type="submit" class="button" class="submit-btn">Decode</button>
+    </form>
   </div>
-  <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+  
+  <div class="output-container">
+    <div class="card" *ngIf="lnrequest.data.chain_address">
+
+    
+  <table class="GeneratedTable lnurl-response">
+    <tbody>
+      <tr>
+        <td>Chain Address</td>
+        <td>{{lnrequest.data.chain_address | titlecase}}</td>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <td>{{lnrequest.data.mtokens}}</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td>{{lnrequest.data.created_at}}</td>
+      </tr>
+      <tr>
+        <td>Payment Hash</td>
+        <td>{{lnrequest.data.payment}}</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Codes by Quackit.com -->
+  </div>
+</div>
 </div>

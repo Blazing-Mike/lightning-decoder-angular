@@ -1,3 +1,26 @@
+$primary-color: #23E0A2;
+$secondary-color: #011911;
 header{
     width: 100vw;
+    background-color: $secondary-color;
+    color: $primary-color;
+    height: 35vh;
+
+    .logo{
+        width: 12rem;
+        margin-top: 10px;
+    }
+
+    .header-text{
+        margin-top: 1rem;
+
+        h1{
+            font-size: 1.7rem;
+        }
+        p{
+            padding: 10px 0;
+            font-size: 1rem;
+        }
+    }
+
 }

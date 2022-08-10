@@ -1,20 +1,73 @@
-.input-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .ln-input{
-        width: 25rem;
-        height: 3rem;
-        outline: none;
-    }
-
-    .submit-btn{
-        width: 5rem;
-        height: 3rem;
-        font-size: 1rem;
-        outline: none;
-        cursor: pointer;
-        margin: 0 2rem;
-    }
+$primary-color: #23e0a2;
+$secondary-color: #011911;
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  width: 70vw;
+  height: 12rem;
+  border-radius: 10px;
+  margin-top: -8rem;
+
+  .ln-input {
+    width: 45rem;
+    height: 3.5rem;
+    border-radius: 10px;
+  }
+
+  &:focus {
+    outline: 1px solid blue;
+  }
+
+  .submit-btn {
+    width: 10rem;
+    height: 3.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    margin: 0 2rem;
+    border-radius: 10px;
+    background: $secondary-color;
+    color: $primary-color;
+  }
+}
+
+.output-container {
+  border: 1px solid #ccc;
+  width: 70vw;
+  height: 25rem;
+  background-color: $primary-color;
+}
+
+
+/* table */
+
+  table.GeneratedTable {
+    width: 70vw;
+    background-color: $primary-color;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: $secondary-color;
+    border-style: none;
+    color: $secondary-color;
+  }
+  
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 1px;
+    border-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    padding: 10px 3px;
+    height: 4rem;
+  }
+  
