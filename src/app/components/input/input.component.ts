@@ -21,6 +21,7 @@ lnRequestBlank !: any;
       (lnrequest) => {
         console.log(lnrequest);
         this.lnrequest = lnrequest;
+        this.lnRequestBlank = "";
 
       }
     )
