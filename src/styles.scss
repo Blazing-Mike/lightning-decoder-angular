@@ -9,6 +9,147 @@ $secondary-color: #011911;
     font-family: 'Roboto', sans-serif;
 }
 
+.normal-flex, .flex{
+  display: flex;
+  gap: 10px;
+}
 body{
     background-color: rgb(244, 236, 236);
 }
+
+/* input */
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: 70vw;
+    height: 12rem;
+    border-radius: 10px;
+    margin-top: -7rem;
+  
+    .ln-input {
+      width: 45rem;
+      height: 3.5rem;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1.2rem;
+      font-weight: 100;
+    }
+  
+    &:focus {
+      outline: 1px solid blue;
+    }
+
+  
+    .submit-btn {
+      width: 10rem;
+      height: 3.5rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      outline: none;
+      cursor: pointer;
+      margin: 0 2rem;
+      border-radius: 10px;
+      background: $secondary-color;
+      color: #fff;
+    }
+  }
+  
+  .output-container {
+    border: transparent;
+    width: 50vw;
+    height: max-content;
+    display: none;
+    border-radius: 10px;
+    background: #fff;
+    
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+
+        .normal-flex{
+          justify-content: space-between;
+          border-bottom: 1px solid #ccc;
+          padding: 5px 0;
+        }
+
+        .row{
+            label{
+                display: flex;
+                width: 100%;
+                font-size: 0.8rem;
+                padding: 5px 0;
+            }
+            p{
+                font-size: 1rem;
+              
+            }
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+    }
+
+  }
+  
+  
+  /* table */
+  
+    table.GeneratedTable {
+      width: 70vw;
+      background-color: $primary-color;
+      border-collapse: collapse;
+      border-width: 1px;
+      border-color: $secondary-color;
+      border-style: none;
+      color: $secondary-color;
+    }
+    
+    table.GeneratedTable td, table.GeneratedTable th {
+      border-width: 1px;
+      border-style: none;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      padding: 10px 3px;
+      height: 4rem;
+    }
+    
+  
+    /* header */
+
+    header{
+        width: 100vw;
+        background-color: $secondary-color;
+        color: #fff;
+        height: 38vh;
+    
+        .logo{
+            width: 12rem;
+            margin-top: 20px;
+        }
+    
+        .header-text{
+            margin-top: 3rem;
+    
+            h1{
+                font-size: 1.7rem;
+            }
+            p{
+                padding: 10px 0;
+                font-size: 1rem;
+            }
+        }
+    
+    }

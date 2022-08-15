@@ -1,44 +1,103 @@
 <div class="outer-container">
   <div class="input-container">
     <form action="" (ngSubmit)="onSubmit()">
-      <input type="text" name="lnrequest" [(ngModel)]="lnRequestBlank" class="ln-input"/>
+      <input
+        type="text"
+        name="lnrequest"
+        [(ngModel)]="lnRequestBlank"
+        class="ln-input"
+        placeholder="Enter an lnaddress, lnivoice or lnurl"
+      />
       <button type="submit" class="button" class="submit-btn">Decode</button>
     </form>
   </div>
-  
-  <div class="output-container">
-    <div class="card" *ngIf="lnrequest.data.chain_address">
 
-    
-  <table class="GeneratedTable lnurl-response">
-    <tbody>
-      <tr>
-        <td>Chain Address</td>
-        <td>{{lnrequest.data.chain_address | titlecase}}</td>
-      </tr>
-      <tr>
-        <td>Amount</td>
-        <td>{{lnrequest.data.mtokens}}</td>
-      </tr>
-      <tr>
-        <td>Date</td>
-        <td>{{lnrequest.data.created_at}}</td>
-      </tr>
-      <tr>
-        <td>Payment Hash</td>
-        <td>{{lnrequest.data.payment}}</td>
-      </tr>
-      <tr>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- Codes by Quackit.com -->
+  <div
+    class="output-container"
+    [ngStyle]="{ display: lnrequest ? 'block' : 'none' }"
+  >
+    <div class="card" *ngIf="lnrequest">
+      <div class="normal-flex">
+        <div class="row">
+          <label>Chain Address</label>
+          <div class="flex">
+            <p class="chain-address" name="chainAddress" ngDefaultControl>
+              {{ lnrequest.data.chain_address | titlecase }}
+            </p>
+            <button [cdkCopyToClipboard]="lnrequest.data.chain_address">
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <label>Amount(MilliSatoshi)</label>
+          <p>{{ lnrequest.data.mtokens }}</p>
+        </div>
+      </div>
+
+      <div class="normal-flex">
+        <div class="row">
+          <label>Date created</label>
+          <p>{{ lnrequest.data.created_at }}</p>
+        </div>
+
+        <div class="row">
+          <label>Expiry Data</label>
+          <p>{{ lnrequest.data.expires_at }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Payment Hash</label>
+        <p>{{ lnrequest.data.payment }}</p>
+      </div>
+
+      <div class="normal-flex">
+        <div class="row">
+          <label> Minimum Final CLTV Expiry</label>
+          <p>{{ lnrequest.data.cltv_delta }}</p>
+        </div>
+
+        <div class="row">
+          <label>expired</label>
+          <p>{{ lnrequest.data.is_expired }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Description</label>
+        <p>{{ lnrequest.data.description }}</p>
+      </div>
+
+      <div class="row">
+        <label>ID</label>
+        <p>{{ lnrequest.data.id }}</p>
+      </div>
+
+      <div class="row">
+        <label>Callback</label>
+        <p>{{ lnrequest.data.callback }}</p>
+      </div>
+
+      <div class="row">
+        <label>ID</label>
+        <p>{{ lnrequest.data.identifier }}</p>
+      </div>
+
+      <div class="row">
+        <label>Minimum sendable Sat</label>
+        <p>{{ lnrequest.data.satMinSendable }}</p>
+      </div>
+
+      <div class="row">
+        <label>Max sendable Sat</label>
+        <p>{{ lnrequest.data.satMaxSendable }}</p>
+      </div>
+
+      <div class="row">
+        <label>Payment Tag</label>
+        <p>{{ lnrequest.data.tag }}</p>
+      </div>
+    </div>
   </div>
-</div>
 </div>
