@@ -12,6 +12,9 @@ export class InputComponent implements OnInit {
 lnrequest!: any;
 lnRequestBlank !: any;
 requestDetail: any;
+isInvoice: boolean = false;
+isLnaddress: boolean = false;
+isEmpty: boolean = false;
 url: string = '';
 chainAddress:string = this.lnrequest?.data.chain_address;
 
@@ -23,16 +26,23 @@ chainAddress:string = this.lnrequest?.data.chain_address;
     if (lnRequestBlank.includes('@')) {
       this.url="lnurl/decodelnaddress",
       this.requestDetail = { lnAddress: this.lnRequestBlank}
+      this.isLnaddress = true;
+      this.isInvoice = false;
+
       return
-    } 
+    }
      if(lnRequestBlank.startsWith('lnurl') && lnRequestBlank.includes('lnurl')) {
       this.url="lnurl/decodelnurl",
       this.requestDetail = { encodedLnUrl: this.lnRequestBlank}
+      this.isLnaddress = true;
+      this.isInvoice = false;
       return
-    } 
+    }
      if(lnRequestBlank.startsWith('ln')) {
       this.url="wallets/ln/decodepaymentrequest",
       this.requestDetail = { request: this.lnRequestBlank}
+      this.isInvoice = true;
+      this.isLnaddress = false;
       return
     }
 
@@ -40,16 +50,17 @@ chainAddress:string = this.lnrequest?.data.chain_address;
 
   onSubmit() {
     if(!this.lnRequestBlank) {
-      alert('No data found');
+      this.isEmpty = true;
       console.log('please enter an input');
       return
     }
     this.constructApiURL(this.lnRequestBlank);
     this.appService.getData(this.url, this.requestDetail).subscribe(
-      (lnrequest) => { 
+      (lnrequest) => {
           console.log(lnrequest);
           this.lnrequest = lnrequest;
           this.lnRequestBlank = "";
+          this.isEmpty = false;
 
       }
     )

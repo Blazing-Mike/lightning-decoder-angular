@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 $primary-color: #23E0A2;
 $secondary-color: #011911;
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .normal-flex, .flex{
@@ -14,7 +14,7 @@ $secondary-color: #011911;
   gap: 10px;
 }
 body{
-    background-color: rgb(244, 236, 236);
+    background-color: #E5E5E5;
 }
 
 /* input */
@@ -23,9 +23,9 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
   }
-  
+
   .input-container {
     display: flex;
     align-items: center;
@@ -35,7 +35,23 @@ body{
     height: 12rem;
     border-radius: 10px;
     margin-top: -7rem;
+
+    .small-input-container{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      flex-direction: column;
+
+    }
+
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
   
+    }
+
     .ln-input {
       width: 45rem;
       height: 3.5rem;
@@ -44,12 +60,12 @@ body{
       font-size: 1.2rem;
       font-weight: 100;
     }
-  
+
     &:focus {
       outline: 1px solid blue;
     }
 
-  
+
     .submit-btn {
       width: 10rem;
       height: 3.5rem;
@@ -63,7 +79,7 @@ body{
       color: #fff;
     }
   }
-  
+
   .output-container {
     border: transparent;
     width: 50vw;
@@ -71,7 +87,7 @@ body{
     display: none;
     border-radius: 10px;
     background: #fff;
-    
+
 
     .card{
         display: flex;
@@ -81,7 +97,7 @@ body{
 
         .normal-flex{
           justify-content: space-between;
-          border-bottom: 1px solid #ccc;
+          //border-bottom: 1px solid #ccc;
           padding: 5px 0;
         }
 
@@ -90,43 +106,21 @@ body{
                 display: flex;
                 width: 100%;
                 font-size: 0.8rem;
-                padding: 5px 0;
+                padding: 3px 0;
             }
-            p{
+            h3{
                 font-size: 1rem;
-              
+                font-weight: 900;
+
             }
             display: flex;
             flex-wrap: wrap;
-            
+
         }
     }
 
   }
-  
-  
-  /* table */
-  
-    table.GeneratedTable {
-      width: 70vw;
-      background-color: $primary-color;
-      border-collapse: collapse;
-      border-width: 1px;
-      border-color: $secondary-color;
-      border-style: none;
-      color: $secondary-color;
-    }
-    
-    table.GeneratedTable td, table.GeneratedTable th {
-      border-width: 1px;
-      border-style: none;
-      border-right-style: solid;
-      border-bottom-style: solid;
-      padding: 10px 3px;
-      height: 4rem;
-    }
-    
-  
+
     /* header */
 
     header{
@@ -134,15 +128,15 @@ body{
         background-color: $secondary-color;
         color: #fff;
         height: 38vh;
-    
+
         .logo{
             width: 12rem;
             margin-top: 20px;
         }
-    
+
         .header-text{
             margin-top: 3rem;
-    
+
             h1{
                 font-size: 1.7rem;
             }
@@ -151,5 +145,12 @@ body{
                 font-size: 1rem;
             }
         }
-    
+
+    }
+
+
+    .error-message{
+        color: red;
+        font-size: 1rem;
+        padding: 10px 0;
     }

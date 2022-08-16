@@ -1,13 +1,20 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <div class="outer-container">
   <div class="input-container">
     <form action="" (ngSubmit)="onSubmit()">
-      <input
+      <div class="small-input-container">
+        <input
         type="text"
         name="lnrequest"
         [(ngModel)]="lnRequestBlank"
         class="ln-input"
         placeholder="Enter an lnaddress, lnivoice or lnurl"
       />
+      <p class="error-message" *ngIf="isEmpty">please make sure you fill this input</p>
+      </div>
+      
+
       <button type="submit" class="button" class="submit-btn">Decode</button>
     </form>
   </div>
@@ -17,87 +24,99 @@
     [ngStyle]="{ display: lnrequest ? 'block' : 'none' }"
   >
     <div class="card" *ngIf="lnrequest">
-      <div class="normal-flex">
-        <div class="row">
+        <div class="row" *ngIf="lnrequest.data.chain_address">
           <label>Chain Address</label>
           <div class="flex">
-            <p class="chain-address" name="chainAddress" ngDefaultControl>
+            <h3 class="chain-address" name="chainAddress" ngDefaultControl>
               {{ lnrequest.data.chain_address | titlecase }}
-            </p>
-            <button [cdkCopyToClipboard]="lnrequest.data.chain_address">
-              Copy
-            </button>
+            </h3>
+            <span class="material-icons" [cdkCopyToClipboard]="lnrequest.data.chain_address">
+              content_copy
+              </span>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="lnrequest.data.mtokens">
           <label>Amount(MilliSatoshi)</label>
-          <p>{{ lnrequest.data.mtokens }}</p>
+          <h3>{{ lnrequest.data.mtokens }}</h3>
         </div>
-      </div>
 
-      <div class="normal-flex">
+
+      <div class="normal-flex" *ngIf="lnrequest.data.created_at">
         <div class="row">
           <label>Date created</label>
-          <p>{{ lnrequest.data.created_at }}</p>
+          <h3>{{ lnrequest.data.created_at | date:"short" }}</h3>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="lnrequest.data.expires_at">
           <label>Expiry Data</label>
-          <p>{{ lnrequest.data.expires_at }}</p>
+          <h3>{{ lnrequest.data.expires_at | date:"short" }}</h3>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="lnrequest.data.payment">
         <label>Payment Hash</label>
-        <p>{{ lnrequest.data.payment }}</p>
+        <div class="flex">
+        <h3>{{ lnrequest.data.payment }}</h3>
+        <span class="material-icons" [cdkCopyToClipboard]="lnrequest.data.payment">
+          content_copy
+          </span>
+        </div>
       </div>
 
       <div class="normal-flex">
-        <div class="row">
+        <div class="row"  *ngIf="lnrequest.data.cltv_delta">
           <label> Minimum Final CLTV Expiry</label>
-          <p>{{ lnrequest.data.cltv_delta }}</p>
+          <h3>{{ lnrequest.data.cltv_delta }}</h3>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="lnrequest.data.is_expired">
           <label>expired</label>
-          <p>{{ lnrequest.data.is_expired }}</p>
+          <h3>{{ lnrequest.data.is_expired }}</h3>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="lnrequest.data.description">
         <label>Description</label>
-        <p>{{ lnrequest.data.description }}</p>
+        <h3>{{ lnrequest.data.description }}</h3>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="lnrequest.data.id">
         <label>ID</label>
-        <p>{{ lnrequest.data.id }}</p>
+        <div class="flex">
+        <h3>{{ lnrequest.data.id }}</h3>
+        <span class="material-icons" [cdkCopyToClipboard]="lnrequest.data.id">
+          content_copy
+          </span>
+        </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="lnrequest.data.callback">
         <label>Callback</label>
-        <p>{{ lnrequest.data.callback }}</p>
+        <h3>{{ lnrequest.data.callback }}</h3>
       </div>
 
-      <div class="row">
-        <label>ID</label>
-        <p>{{ lnrequest.data.identifier }}</p>
-      </div>
 
-      <div class="row">
-        <label>Minimum sendable Sat</label>
-        <p>{{ lnrequest.data.satMinSendable }}</p>
-      </div>
+<div class="row"  *ngIf="lnrequest.data.identifier">
+  <label>ID</label>
+  <h3>{{ lnrequest.data.identifier }}</h3>
+</div>
 
-      <div class="row">
-        <label>Max sendable Sat</label>
-        <p>{{ lnrequest.data.satMaxSendable }}</p>
-      </div>
+<div class="row"  *ngIf="lnrequest.data.satMinSendable">
+  <label>Minimum sendable Sat</label>
+  <h3>{{ lnrequest.data.satMinSendable }}</h3>
+</div>
 
-      <div class="row">
-        <label>Payment Tag</label>
-        <p>{{ lnrequest.data.tag }}</p>
-      </div>
+<div class="row" *ngIf="lnrequest.data.satMaxSendable" >
+  <label>Max sendable Sat</label>
+  <h3>{{ lnrequest.data.satMaxSendable }}</h3>
+</div>
+
+<div class="row" *ngIf="lnrequest.data.tag">
+  <label>Payment Tag</label>
+  <h3>{{ lnrequest.data.tag }}</h3>
+</div>
     </div>
   </div>
 </div>
+
+
