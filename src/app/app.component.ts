@@ -9,7 +9,7 @@ import { AppService } from './services/app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'lightning-decoder-angualar';
+  title = 'lightning-decoder-angular';
 
 	constructor(private http: HttpClient) {}
 
