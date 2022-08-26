@@ -11,11 +11,10 @@
         class="ln-input"
         placeholder="Enter an lnaddress, lnivoice or lnurl"
       />
-      <p class="error-message" *ngIf="isEmpty">please make sure you fill this input</p>
       </div>
-      
 
       <button type="submit" class="button" class="submit-btn">Decode</button>
+      <p class="error-message" *ngIf="isEmpty">please make sure you fill this input</p>
     </form>
   </div>
 
@@ -24,7 +23,8 @@
     [ngStyle]="{ display: lnrequest ? 'block' : 'none' }"
   >
     <div class="card" *ngIf="lnrequest">
-        <div class="row" *ngIf="lnrequest.data.chain_address">
+      <div class="normal-flex" *ngIf="lnrequest.data.chain_address">
+        <div class="row" >
           <label>Chain Address</label>
           <div class="flex">
             <h3 class="chain-address" name="chainAddress" ngDefaultControl>
@@ -38,6 +38,7 @@
         <div class="row" *ngIf="lnrequest.data.mtokens">
           <label>Amount(MilliSatoshi)</label>
           <h3>{{ lnrequest.data.mtokens }}</h3>
+        </div>
         </div>
 
 
@@ -117,6 +118,10 @@
 </div>
     </div>
   </div>
+
+  <footer>
+    <p>Built with love ❤️ @Bitnob</p>
+  </footer>
 </div>
 
 
